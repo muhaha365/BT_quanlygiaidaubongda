@@ -14,6 +14,16 @@ public:
     {
         cout << "Ten cau thu: " << tenCT << " | " << ViTri << " | " << soao;
     }
+    void Nhap()
+    {
+        cin.ignore();
+        cout << "Ten cau thu: ";
+        getline(cin, tenCT);
+        cout << "Vi tri: ";
+        getline(cin, ViTri);
+        cout << "So ao: ";
+        cin >> soao;
+    }
 };
 
 class DoiBong
@@ -31,6 +41,22 @@ public:
     void ThemCauThu(CauThu ct)
     {
         dsCT.push_back(ct);
+    }
+    void Nhap()
+    {
+        cin.ignore();
+        cout << "Ten doi: ";
+        getline(cin, tendoi);
+        cout << "Ten HVL: ";
+        getline(cin, tenHLV);
+        int n;
+        cout << "So luong cau thu: ";
+        cin >> n;
+        dsCT.resize(n);
+        for(int i = 0; i < dsCT.size(); i++)
+        {
+            dsCT[i].Nhap();
+        }
     }
     void CapNhat(int sobanthang, int sobanthua)
     {
@@ -74,5 +100,21 @@ public:
              << " | Tran: " << sotran << " | T-H-B: " << thang << "-" << hoa << "-" << thua 
              << " | BT-BB: " << banThang << "-" << banThua 
              << " | Hieu so: " << getHieuSo() << endl;
+        for(int i = 0; i < dsCT.size(); i++)
+        {
+            dsCT[i].Xuat(); cout << endl;
+        }
     }
 };
+
+class TranDau
+{
+private:
+}; 
+
+int main()
+{
+    DoiBong a;
+    a.Nhap();
+    a.Xuat();
+}
